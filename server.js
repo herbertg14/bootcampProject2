@@ -18,9 +18,7 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-
-//still have to add route file
-var routes = require('./controllers/burgers_controller.js');
+var routes = require('./controllers/controller.js');
 app.use('/', routes);
 
 var PORT = process.env.PORT || 8080;
