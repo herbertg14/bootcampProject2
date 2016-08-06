@@ -2,11 +2,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-var Users = require("./models")["Users"];
-var ToDoList = require("./models")["ToDoList"];
+// var Users = require("./models")["Users"];
+// var ToDoList = require("./models")["ToDoList"];
 
-Users.sync();
-ToDoList.sync();
+// Users.sync();
+// ToDoList.sync();
 
 var app = express();
 
