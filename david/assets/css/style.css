@@ -1,9 +1,13 @@
 body {
-	background-image: url("../images/terminal.jpeg");
+	background-image: url("../images/backgroundHerbert4.jpg");
 	background-size:cover;
 	height:auto;
 	width:100%;
 	min-height:100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	/*background: center;*/
 }
 
 div.col-md-12.logoContainer {
