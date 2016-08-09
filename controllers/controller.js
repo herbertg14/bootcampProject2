@@ -28,11 +28,10 @@ router.post('/login/new', function(req,res) {
 	console.log(req.body);
 	console.log("new user route hit");
   models.Users.findOne({ where: {username: req.body.username} }).then(function(user) {
-  if (user) { // if the record already exists in the db then send an alert telling the user that the username already exist
+  if(user) { // if the record already exists in the db then send an alert telling the user that the username already exist
 		console.log("the user selected a username already in the database");
     res.send("alert");
-  }
-  else {
+  } else {
 		console.log("new user being created");
     models.Users.create({
         firstName: req.body.firstName,
@@ -42,7 +41,7 @@ router.post('/login/new', function(req,res) {
         password: sha1(req.body.password)
     }).then(function(){
 			console.log("redirecting");
-      res.redirect('/');
+      res.send('reload');
     });
   }
 	});

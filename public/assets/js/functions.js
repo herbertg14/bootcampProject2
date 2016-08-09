@@ -19,8 +19,11 @@ $(document).ready(function(){
     };
     $.post(currentURL + "/login/new", newUser ,function(err){
       console.log(err);
-      if (err){
+      if (err == "alert"){
         alert("That username is taken. Please try another.");
+      }
+      else {
+        window.location.reload();
       }
     });
     return false;
