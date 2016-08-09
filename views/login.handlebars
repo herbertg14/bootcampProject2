@@ -1,0 +1,93 @@
+<div class="row">
+    <div class="col m12"> </div>
+</div>
+<div class="row">
+    <div class="col m12"> </div>
+</div>
+
+<div class="row">
+    <div class="col m12"> </div>
+</div>
+
+<div class="row">
+    <div class="col m12"> </div>
+</div>
+
+<div class="row">
+    <div class="col m3"></div>
+    <div class="col m6 main-content">
+        <img class="responsive-img" src="assets/images/logo.png">
+        <ul class="center">
+            <li><button class="waves-effect waves-light btn modal-trigger" data-target="signin">Sign In</button></li>
+            <li><button class="waves-effect waves-light btn modal-trigger" data-target="signup">Sign Up</button></li>
+        </ul>
+    </div>
+    <div class="col m3"></div>
+</div>
+
+     <!-- Modal Structure for Sign Up button -->
+  <div id="signup" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <div class="row">
+            <form id = "#signUpForm" class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="First name" id="first_name" type="text" class="validate" name = "firstName">
+                  <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input placeholder="Last name" id="last_name" type="text" class="validate" name = "lastName">
+                  <label for="last_name">Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="johndoe88" id="username" type="text" class="validate" name = "username">
+                  <label for="username">Username</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="Password must be at least 7 characters" id="password" type="password" class="validate" name = "password">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input  placeholder="johndoe@web.com" id="email" type="email" class="validate" name = "email">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <button id = "signUp" class = "waves-effect waves-light btn" type="submit">Sign Up</button>
+            </form>
+          </div>
+    </div>
+
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+    </div>
+  </div>
+
+  <!--Modal Structure for Sign In button-->
+  <div id="signin" class="modal modal-fixed-footer">
+    <div class="modal-content-signin">
+      <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="johndoe88" id="username" type="text" class="validate">
+                  <label for="username">Username</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input placeholder="Please enter your password" id="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+    </div>
+
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+  </div>

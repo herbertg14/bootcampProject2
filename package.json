@@ -23,6 +23,8 @@
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.6",
     "mysql": "^2.11.1",
+    "nodemailer": "^2.5.0",
+    "nodemailer-sparkpost-transport": "^1.0.0",
     "sequelize": "^3.23.6",
     "sequelize-cli": "^2.4.0",
     "sha1": "^1.1.1",
