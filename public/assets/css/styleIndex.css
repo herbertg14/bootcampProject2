@@ -1,0 +1,26 @@
+header,main,footer{
+	padding-left: 350px;
+}
+
+/*when on mobile screen mode*/
+@media only screen and (max-width : 1008px) {
+		header, main, footer {
+			padding-left: 0;
+	}
+}
+
+#toDoTab{
+	width: 350px;
+	transform: translate(0%);
+}
+
+#searchModal{
+	/*height: */
+	max-height: 200px !important;
+	overflow-y: hidden !important;
+}
+
+fixed-action-btn{
+	bottom: 45px;
+	right: 24px;
+}

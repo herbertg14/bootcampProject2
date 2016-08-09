@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--Import Google Icon Font-->
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+<body>
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+
+	<header>
+		<!-- navigation bar -->
+	  <nav>
+	    <div class="nav-wrapper">
+
+	    	<!-- menu todolist icon that is hidden on full screen-->
+	      <a href="#" data-activates="toDoTab" class="button-collapse"><i class="material-icons">menu</i></a>
+
+	      <!-- logo -->
+	      <a href="#" class="brand-logo center">Etinerary</a>
+
+	      <ul class="right">
+	        <li><a class="modal-trigger" href="#searchModal"><i class="material-icons">search</i></a></li>
+
+	        <!-- option menu icon -->
+	        <li><a class='dropdown-button' href='#' data-activates='menuDropDown' data-beloworigin="true"><i class="material-icons">more_vert</i></a></li>
+	      </ul>
+
+	      <!-- options menu -->
+				<ul id='menuDropDown' class='dropdown-content'>
+					<li><a href="#!">one</a></li>
+					<li><a href="#!">two</a></li>
+					<li class="divider"></li>
+					<li><a href="#!">Log out</a></li>
+				</ul>
+			</div>
+	  </nav>
+
+	  <!-- Sidetab/ todotab -->
+	  <div id="toDoTab" class="side-nav fixed">
+	  	<div class="brand-logo center"><h4>To do list</h4><hr></div>
+	    <ul class="collapsible" data-collapsible="accordion">
+				<li>
+					<div class="collapsible-header"><i class="material-icons">label</i>{{this.name}}</div>
+					<div class="collapsible-body"><p>Comment: {{this.comment}}</p></div>
+				</li>
+				<li>
+					<div class="collapsible-header"><i class="material-icons">label</i>Dummy Data title here</div>
+					<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+				</li>
+	    </ul>
+	  </div>
+
+	  <!-- search modal -->
+		<div id="searchModal" class="modal modal-fixed-footer">
+			<div class="modal-content">
+				<h5>Search places by destionation</h5>
+				<form class="col s12">
+					<div class="row">
+						<div class="input-field col s12">
+							<input placeholder="Enter an address, city or ZIP code" id="searchInput" type="text" class="validate">
+							<label for="searchInput">Search</label>
+						</div>
+					</div>
+				</form>
+				</div>
+				<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Search</a>
+			</div>
+		</div>
+
+		<!-- add modal -->
+		<div id="addModal" class="modal modal-fixed-footer">
+			<div class="modal-content">
+				<h5>Add place to eatinerary</h5>
+				<form class="col s12">
+					<div class="row">
+						<div class="input-field col s12">
+							<input placeholder="Add restaurant name" id="nameInput" type="text" class="validate">
+							<label for="searchInput">Restaurant Name</label>
+						</div>
+					</div>
+
+		      <div class="row">
+		        <div class="input-field col s12">
+		          <textarea id="commentInput" class="materialize-textarea"></textarea>
+		          <label for="commentInput">Comments</label>
+		        </div>
+		      </div>
+
+				</form>
+				</div>
+				<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Add</a>
+			</div>
+		</div>
+
+  </header>
+
+	<main>
+		<div class="row">
+			<div id="googleMaps"class="col s12 m7 l8">
+				<span class="flow-text">Map goes here</span>
+			</div>
+		</div>
+
+		<div class="fixed-action-btn modal-trigger" href="#addModal"">
+			<a class="btn-floating btn-large green">
+			<i class="large material-icons">playlist_add</i>
+			</a>
+		</div>
+	</main>
+
+
+
+	<script type="text/javascript">
+		$( document ).ready(function(){
+			$(".button-collapse").sideNav();
+		  $('.modal-trigger').leanModal({
+		      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+		      opacity: .5, // Opacity of modal background
+		      in_duration: 300, // Transition in duration
+		      out_duration: 300 // Transition out duration// Ending top style attribute
+		    }
+		  );
+		})
+	</script>
+
+	<style type="text/css">
+
+		/*when on fullscreen mode*/
+		header,main,footer{
+			padding-left: 350px;
+		}
+
+		/*when on mobile screen mode*/
+		@media only screen and (max-width : 1008px) {
+    		header, main, footer {
+     			padding-left: 0;
+  		}
+    }
+
+  	#toDoTab{
+  		width: 350px;
+  		transform: translate(0%);
+  	}
+
+  	#searchModal{
+  		/*height: */
+  		max-height: 200px !important;
+  		overflow-y: hidden !important;
+  	}
+
+  	fixed-action-btn{
+  		bottom: 45px;
+  		right: 24px;
+  	}
+
+ /* 	.modal-content{
+  		overflow-y: hidden;
+  	}*/
+	</style>
+
+</body>
+</html>
