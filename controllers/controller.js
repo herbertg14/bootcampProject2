@@ -13,14 +13,43 @@ router.get('/', function(req,res) {
 });
 
 router.get('/login', function(req,res) {
-		res.render('login');
+	res.render('login');
 });
 
-router.get('/mylist/:username', function(req,res){
-  models.Users.findOne({ where: {username: req.params.username, password: sha1(req.body.password)}}).then(function(data){
-    var hbsObject = {user: data};
-    res.render('index', hbsObject);
-  });
+router.post('/signIn', function(req,res){
+	console.log("sign in route hit");
+	models.Users.findOne({
+		where: {username: req.body.username}
+	}).then(function(user) {
+		if (user == null){
+			console.log("user inputed a username the doesn't exist");
+			res.redirect('/login');
+		} else {
+			if (sha1(req.body.password) == user.password){
+				// save the user's information
+				// to req.session, as the comments below show
+				req.session.logged_in = true;
+				// the username to the session
+				req.session.username = user.username;
+				// the user id to the session
+				req.session.user_id = user.id;
+				// and the user's email.
+				req.session.user_email = user.email;
+				console.log(req.session);
+				console.log("user has been signed in");
+				res.redirect('/myList');
+			} else {
+				console.log("password didn't match");
+				res.redirect('/');
+			}
+	}
+	});
+});
+
+router.get('/myList', function(req,res){
+	console.log(req.session);
+	console.log("should be rendering index.handlebars");
+	res.render('index');
 });
 
 //after the user signs up redirect them back to the main login page to now sign in.

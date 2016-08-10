@@ -31,29 +31,21 @@ $(document).ready(function(){
   }
   else {
     alert("Please make sure you password matches.");
-  } //added this 
+  } //added this
     return false;
   });
 
- $('#signInSubmit').on('click', function(){
-    function collectInfo(){
-      var userInfo = {
-        username: $('#username').val().trim(),
-        password: $('#password').val().trim()
-      };
-      var currentURL = window.location.origin;
-      $.post(currentURL + '/mylist/:username', userInfo, function(data){
-        console.log(data);
-      });
-      return false;
-    }
-    formValidate();
-  }); //closes out submit button on click 
+ $('#signInSubmit').on('click', function(e){
+   e.preventDefault();
+   var userInfo = {
+    username: $('#signInUser').val().trim(),
+    password: $('#signInPass').val().trim()
+    };
+   var currentURL = window.location.origin;
+   $.post(currentURL + '/signIn', userInfo, function(data){
+    window.location.href = "/mylist";
+   });
+  }); //closes out submit button on click
 
 
-}); //closes out document.ready 
-
-
-
-
-
+}); //closes out document.ready
