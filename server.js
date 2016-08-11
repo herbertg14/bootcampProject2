@@ -1,6 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
 
 // var Users = require("./models")["Users"];
 // var ToDoList = require("./models")["ToDoList"];
@@ -19,6 +22,10 @@ app.use(bodyParser.urlencoded({
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 var exphbs = require('express-handlebars');
+
+app.use(session({ secret: 'app', cookie: { maxAge: 600000 }}));
+app.use(cookieParser());
+
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
 }));
