@@ -3,6 +3,8 @@
 	<head>
 		<!--Import Google Icon Font-->
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700|Open+Sans+Condensed:700,300,300italic|Open+Sans:400,300italic,400italic,600,600italic,700,700italic,800,800italic|PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'/>
 		<!--Import materialize.css-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 		<!--Let browser know website is optimized for mobile-->
@@ -73,7 +75,7 @@
 				</form>
 				</div>
 				<div class="modal-footer">
-				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Search</a>
+				<a href="#!" id="searchButton" class="modal-action modal-close waves-effect waves-green btn-flat ">Search</a>
 			</div>
 		</div>
 
@@ -108,10 +110,10 @@
 		<div class="row">
 			<div id="googleMaps" class="col s12 m7 l8 ">
 				<!-- <span class="flow-text">Map goes here</span> -->
-				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7098.94326104394!2d78.0430654485247!3d27.172909818538997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1385710909804" width="600" height="450" frameborder="0" style="border:0"></iframe>
+				<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7098.94326104394!2d78.0430654485247!3d27.172909818538997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1385710909804" width="600" height="450" frameborder="0" style="border:0"></iframe> -->
+
 			</div>
 		</div>
-
 		<div class="fixed-action-btn modal-trigger" href="#addModal"">
 			<a class="btn-floating btn-large green">
 			<i class="large material-icons">playlist_add</i>
@@ -119,8 +121,8 @@
 		</div>
 	</main>
 
-<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKWU21UydhwdpDXv3wiZUZzkmN53Kwey4&callback=initMap"> </script> -->
-
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKWU21UydhwdpDXv3wiZUZzkmN53Kwey4&callback=initMap"> </script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.20&sensor=false"></script> -->
 <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfT21G3oNOsGUu0tIwSUJV7-nsmIEHNSc&callback=initMap"></script> -->
 <script type="text/javascript" src="public/assets/js/functionsIndex.js"></script>
 
