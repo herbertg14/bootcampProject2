@@ -1,34 +1,30 @@
-<link rel="stylesheet" href="/assets/css/style.css" type="text/css"/>
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <!--Link CSS styling-->
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css"> <!--Check route-->
+  </head>
 
-<div class="row">
-    <div class="col m12"> </div>
-</div>
+<body>
 
-<div class="row">
-    <div class="col m12"> </div>
-</div>
+  <div class="vid-container">
+      <video class="bgvid" autoplay="autoplay" muted="muted" preload="auto" loop>
+          <source src="/assets/video/dine.mp4" type="video/mp4"> <!--Check video route-->
+      </video>
 
-<div class="row">
-    <div class="col m12"> </div>
-</div>
-
-<div class="row">
-    <div class="col m12"> </div>
-</div>
-
-<div class="row">
-    <div class="col m3"></div>
-    <div class="col m6 main-content">
-        <img class="responsive-img" src="assets/images/logo.png">
-        <ul class="center">
-            <li><button class="waves-effect waves-light btn modal-trigger" data-target="signin">Sign In</button></li>
-            <li><button class="waves-effect waves-light btn modal-trigger" data-target="signup">Sign Up</button></li>
-        </ul>
+   <div class="box">
+      <img id="logo" src="/assets/images/logo2.png"> <!--Check this route-->
+          <input type="text" placeholder="Username" id="username" class="validate"/>
+          <input type="password" placeholder="Password" id="password" class="validate" />
+            <button id="signInSubmit" type="submit">Log In</button>
+           <p>Not a member? <a id="sign-up-a" class="modal-trigger" data-target="signup" href="#signup">Sign Up</a></p>
     </div>
-    <div class="col m3"></div>
-</div>
+<!--Closes out vid-container div-->
+    </div> 
 
-     <!-- Modal Structure for Sign Up button -->
+    <!-- Modal Structure for Sign Up button -->
   <div id="signup" class="modal modal-fixed-footer">
     <div class="modal-content">
       <div class="row">
@@ -77,29 +73,10 @@
     </div>
   </div>
 
-  <!--Modal Structure for Sign In button-->
-  <div id="signin" class="modal modal-fixed-footer">
-    <div class="modal-content-signin">
-      <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="johndoe88" id="username" type="text" class="validate">
-                  <label for="username">Username</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input placeholder="Please enter your password" id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
-                <button id = "signInSubmit" class = "waves-effect waves-light btn" type="submit">Sign In</button>
-              </div>
-    </div>
-
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
-    </div>
-  </div>
-
-<script type="text/javascript" src="assets/js/functions.js"></script>
+ <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script type="text/javascript" src="assets/js/functions.js"></script>
+</body>
+</html>

@@ -1,33 +1,80 @@
-body {
-	background-image: url("../images/backgroundHerbert4.jpg");
-	background-size:cover;
-	height:auto;
-	width:100%;
-	min-height:100%;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	/*background: center;*/
+body{
+  padding:0;
+  margin:0;
+}
+.vid-container{
+  position:relative;
+  height:100vh;
+  overflow:hidden;
 }
 
-div.col-md-12.logoContainer {
-	background-color:brown;
+.bgvid{
+  position:absolute;
+  left:0;
+  top:0;
+  width:100vw;
 }
 
-li {
-	display:inline;
+.box{
+  position:absolute;
+  height:100%;
+  width:100%;
+  font-family:Helvetica;
+  color:#fff;
+  background:rgba(0,0,0,0.13);
+  padding:30px 0px;
+}
+.box h1{
+  text-align:center;
+  margin:30px 0;
+  font-size:30px;
+}
+.box input{
+  display:block;
+  width:300px;
+  margin:20px auto;
+  padding:15px;
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  border:0;
+}
+.box input:focus,.box input:active,.box button:focus,.box button:active{
+  outline:none;
+}
+.box button{
+  background:#76323f;
+  border:0;
+  color:#fff;
+  padding:10px;
+  font-size:20px;
+  width:330px;
+  margin:20px auto;
+  display:block;
+  cursor:pointer;
+}
+.box button:active{
+  background:#27ae60;
+}
+.box p{
+  font-size:14px;
+  text-align:center;
+}
+.box p span{
+  cursor:pointer;
+  color:#1de9b6;
 }
 
-.main-content{
-	background-color: rgba(255, 255, 255,0.7);
-}
-
-img.responsive-img {
-	max-width: 50%;
-	margin: auto;
+#logo {
+	margin:auto;
 	display:flex;
 }
 
-div.modal-content-signin {
-	height:50%;
+#sign-up-a {
+  color: orange;
 }
+
+#signUp {
+	background-color: #76323f;
+}
+
+
