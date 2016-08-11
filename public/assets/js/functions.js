@@ -50,10 +50,12 @@ $(document).ready(function(){
   $('#addToDo').on('click',function(e){
     console.log("click");
     e.preventDefault();
+    var emailRemind = $('#mySwitch').prop("checked");
+    console.log(emailRemind);
     var newItem = {
       title: $('#nameInput').val().trim(),
       description: $('#commentInput').val().trim(),
-      remind: $('#remind').val().trim(),
+      //remind: $('#remind').val().trim(),
       remindTime: $('#timeInput').val().trim(),
     };
     console.log(newItem);
