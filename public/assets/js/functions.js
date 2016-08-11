@@ -47,5 +47,20 @@ $(document).ready(function(){
    });
   }); //closes out submit button on click
 
+  $('#addToDo').on('click',function(e){
+    console.log("click");
+    e.preventDefault();
+    var newItem = {
+      title: $('#nameInput').val().trim(),
+      description: $('#commentInput').val().trim(),
+      remind: $('#remind').val().trim(),
+      remindTime: $('#timeInput').val().trim(),
+    };
+    console.log(newItem);
+    var currentURL = window.location.origin;
+    $.post(currentURL + '/addToList', newItem, function(data){
+
+    });
+  });
 
 }); //closes out document.ready

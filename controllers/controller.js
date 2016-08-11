@@ -23,7 +23,7 @@ router.post('/signIn', function(req,res){
 	}).then(function(user) {
 		if (user == null){
 			console.log("user inputed a username the doesn't exist");
-			res.redirect('/login');
+			res.send('userName');
 		} else {
 			if (sha1(req.body.password) == user.password){
 				// save the user's information
@@ -40,21 +40,23 @@ router.post('/signIn', function(req,res){
 				res.redirect('/myList');
 			} else {
 				console.log("password didn't match");
-				res.redirect('/');
+				res.send('password');
 			}
 	}
 	});
 });
 
 router.get('/myList', function(req,res){
-	console.log(req.session);
+	models.ToDoList.findAll({where: {username: req.session.username } }).then(function(data){
+		var hbsObject = {user : data};
+		res.render('index', hbsObject);
+	});
 	console.log("should be rendering index.handlebars");
-	res.render('index');
+	// res.render('index');
 });
 
 //after the user signs up redirect them back to the main login page to now sign in.
 router.post('/login/new', function(req,res) {
-	console.log(req.body);
 	console.log("new user route hit");
   models.Users.findOne({ where: {username: req.body.username} }).then(function(user) {
   if(user) { // if the record already exists in the db then send an alert telling the user that the username already exist
@@ -73,6 +75,20 @@ router.post('/login/new', function(req,res) {
       res.send('reload');
     });
   }
+	});
+});
+
+router.post('/addToList', function(req,res){
+	console.log('user added an item to their list');
+	models.ToDoList.create({
+		username: req.session.username,
+		email: req.session.email,
+		title: req.body.title,
+		description: req.body.description,
+		remind: false,
+		remindTime: req.body.remindTime,
+	}).then(function(){
+		res.redirect('/myList');
 	});
 });
 

@@ -17,6 +17,15 @@ module.exports = {
       description: {
         type: Sequelize.STRING
       },
+      email: {
+        type: Sequelize.STRING
+      },
+      remind: {
+        type: Sequelize.BOOLEAN
+      },
+      remindTime: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
