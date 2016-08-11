@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!--Google Fonts link-->
+		<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 		<!--Import Google Icon Font-->
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!--Import materialize.css-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+		<!--Link CSS styleIndex.css-->
+		<link rel="stylesheet" type="text/css" href="public/assets/css/styleIndex.css">
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
@@ -24,7 +28,7 @@
 	      <a href="#" data-activates="toDoTab" class="button-collapse"><i class="material-icons">menu</i></a>
 
 	      <!-- logo -->
-	      <a href="#" class="brand-logo center">Etinerary</a>
+	      <a href="#" id="brand-title" class="brand-logo center">Eatinerary</a>
 
 	      <ul class="right">
 	        <li><a class="modal-trigger" href="#searchModal"><i class="material-icons">search</i></a></li>
@@ -35,8 +39,8 @@
 
 	      <!-- options menu -->
 				<ul id='menuDropDown' class='dropdown-content'>
-					<li><a href="#!">one</a></li>
-					<li><a href="#!">two</a></li>
+					<li><a href="#!">Profile</a></li>
+					<li><a href="#!">Settings</a></li>
 					<li class="divider"></li>
 					<li><a href="#!">Log out</a></li>
 				</ul>
@@ -45,7 +49,7 @@
 
 	  <!-- Sidetab/ todotab -->
 	  <div id="toDoTab" class="side-nav fixed">
-	  	<div class="brand-logo center"><h4>To do list</h4><hr></div>
+	  	<div class="brand-logo center"><h4>To Do List</h4><hr></div>
 	    <ul class="collapsible" data-collapsible="accordion">
 				<li>
 					<div class="collapsible-header"><i class="material-icons">label</i>{{this.name}}</div>
@@ -107,7 +111,7 @@
 	<main>
 		<div class="row">
 			<div id="googleMaps"class="col s12 m7 l8">
-				<span class="flow-text">Map goes here</span>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7098.94326104394!2d78.0430654485247!3d27.172909818538997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1385710909804" width="600" height="450" frameborder="0" style="border:0"></iframe>
 			</div>
 		</div>
 

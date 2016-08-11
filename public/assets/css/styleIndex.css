@@ -1,6 +1,37 @@
+@font-face {
+	font-family: "Lobster";
+	src: url("https://fonts.googleapis.com/css?family=Lobster");
+}
+
+
 header,main,footer{
 	padding-left: 350px;
 }
+
+.brand-logo.center {
+	font-family: "Lobster";
+	color:#fff;	
+}
+
+.nav-wrapper{
+	background-color: #76323f;
+}
+
+#toDoTab{
+	background-color: #c09f80;
+}
+
+.collapsible-header{
+	background-color:rgba(38,168,156,0.3);
+}
+
+i.large.material-icons {
+	background-color: #565656;
+}
+
+
+
+
 
 /*when on mobile screen mode*/
 @media only screen and (max-width : 1008px) {
@@ -19,6 +50,7 @@ header,main,footer{
 	max-height: 200px !important;
 	overflow-y: hidden !important;
 }
+
 
 fixed-action-btn{
 	bottom: 45px;
