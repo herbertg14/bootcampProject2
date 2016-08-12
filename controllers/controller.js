@@ -128,7 +128,6 @@ router.post('/yelp', function(req,res){
 	.catch(function (err) {
 	  console.error(err);
 	});
-	// res.send(req.body.search);
 });
 
 module.exports = router;

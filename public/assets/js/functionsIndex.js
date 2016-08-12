@@ -20,7 +20,7 @@ var markers = [];
 function initMap() {
 	// marker position
 	var austin = {lat:30.407, lng:-97.959};
-	var dallas = {lat:32.6945, lng:-96.81996};
+	// var dallas = {lat:32.6945, lng:-96.81996};
 
 	map = new google.maps.Map(document.getElementById('googleMaps'), {
 		center: austin,
@@ -181,11 +181,11 @@ function initMap() {
 	// 	});
 	// }
 
-	makePin(austin);
-	makePin(dallas);
+	// makePin(austin);
+	// makePin(dallas);
 
 	// var pins =[pin, otherpin];
-	fitAll();
+	// fitAll();
 
 	// deleteMarkers();
 	// fitAll();
@@ -283,7 +283,7 @@ function makePin(position){
 		});
 	});
 	markers.push(marker);
-	console.log(markers);
+	// console.log(markers);
 	// return marker;
 
 }
@@ -310,9 +310,6 @@ function deleteMarkers() {
   markers = [];
 }
 
-
-
-
 function fitAll(){
 	var bounds = new google.maps.LatLngBounds();
 	for (var i = 0; i < markers.length; i++) {
@@ -320,8 +317,6 @@ function fitAll(){
 	}
 	map.fitBounds(bounds);
 }
-
-
 
 $(".xbutton").on("click",".container",function(){
 	console.log("adding to todolist");
@@ -331,23 +326,35 @@ $("#searchButton").on("click",function(){
 	console.log("button clicked");
 	var currentURL = window.location.origin;
 	console.log(currentURL + "/yelp");
-	var searchRequest = {
-		keyword: $("#keywordSearch").val().trim(),
-		city: $("#citySearch").val().trim(),
-		state:$("#stateSearch").val().trim(),
-		range: parseInt($("#rangeSearch").val().trim())
-	}
-	console.log(searchRequest);
-	var austin = {lat:31.0111, lng:-97.327};
-	var mexico = {lat:30.713, lng:-108.327};
-	// makePin(austin);
-	deleteMarkers();
 
-	makePin(austin);
-	makePin(mexico);
-	fitAll();
+	var searchRequest = {
+		keyword: $("#keywordSearch").val(),
+		city: $("#citySearch").val(),
+		state:$("#stateSearch").val(),
+		range: parseInt($("#rangeSearch").val())
+	}
+	$("#keywordSearch").val("");
+	$("#citySearch").val("");
+	$("#stateSearch").val("");
+	// console.log(searchRequest);
+	// var austin = {lat:31.0111, lng:-97.327};
+	// var mexico = {lat:30.713, lng:-108.327};
+	// // makePin(austin);
+	deleteMarkers();
+	//
+	// makePin(austin);
+	// makePin(mexico);
+	// fitAll();
 	$.post(currentURL + "/yelp", searchRequest, function(data){
 		console.log("data sent back");
-		console.log(data);
+		console.log(data.businesses);
+		var list = data.businesses;
+		for (var i = 0; i < list.length; i++){
+			var item = list[i];
+			var location = {lat:item.location.coordinate.latitude, lng:item.location.coordinate.longitude};
+			makePin(location);
+			// console.log(item.id);
+		}
+		fitAll();
 	});
 });
