@@ -4,9 +4,6 @@ var models = require('../models');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var sha1 = require('sha1');
-// var nodemailer = require('nodemailer');
-// var sparkPostTransport = require('nodemailer-sparkpost-transport');
-// var transporter = nodemailer.createTransport(sparkPostTransport('df054040764a5d7be9c95470ea939af4c87b6dc9'));
 
 router.get('/', function(req,res) {
 	res.redirect('/login');

@@ -8,19 +8,6 @@ var moment = require('moment');
 var nodemailer = require('nodemailer');
 var sparkPostTransport = require('nodemailer-sparkpost-transport');
 var transporter = nodemailer.createTransport(sparkPostTransport({sparkPostApiKey: "a694a29aeadc75c9a943f51ad1fd8b5afc8f816f"}));
-//this works
-// transporter.sendMail({
-//   from: 'sandbox@sparkpostbox.com',
-//   to: 'gutriv3@gmail.com',
-//   subject: 'Very important stuff',
-//   text: 'Plain text',
-// }, function(err, info) {
-//   if (err) {
-//     console.log('Error: ' + err);
-//   } else {
-//     console.log('Success: ' + info);
-// 		console.log(info);
-// }});
 
 var app = express();
 
