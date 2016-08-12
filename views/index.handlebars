@@ -51,8 +51,8 @@
           </div>
         </div>
       </form>
-      </div>
-      <div class="modal-footer">
+    </div>
+    <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Search</a>
     </div>
   </div>
@@ -60,47 +60,137 @@
   <!-- add modal -->
   <div id="addModal" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h5>Add place to your eatinerary</h5>
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="Add restaurant name" name = "title" id="nameInput" type="text" class="validate">
-            <label for="searchInput">Restaurant Name</label>
-          </div>
-        </div>
+      <h5>Add restaurant to Eatinerary</h5>
+      <div class="row">
+        <form class="col s12">
 
-        <div class="row">
-          <div class="input-field col s12">
-            <textarea id="commentInput" class="materialize-textarea" name = "comment"></textarea>
-            <label for="commentInput">Comments</label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <div class="switch">
-              <label>
-                Off
-                <input id="myCheckbox" type="checkbox">
-                <span class="lever"></span>
-                on
-              </label>
+          <!-- Restaurant Name -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="restaurantNameInput" type="text" class="validate">
+              <label for="restaurantNameInput">Restaurant Name</label>
             </div>
           </div>
-        </div>
 
-        <div class="row">
-          <div class="input-field col s12">
-            <input placeholder="Please input as YYYY-MM-DD HH:mm AM/PM" name = "time" id="timeInput" type="text" class="validate">
-            <label for="searchInput">Enter the time you want an email reminder sent to you</label>
+          <!-- streetAddress -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="addressInput" type="text" class="validate">
+              <label for="addressInput">Address</label>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="modal-footer">
-        <button class="btn waves-effect waves-light" type="submit" name="action" id = "addToDo">Submit <i class="material-icons right">send</i>
-        </button>
+          <!-- City and State -->
+          <div class="row">
+            <!-- city -->
+            <div class="input-field col s6">
+              <input id="cityInput" type="text" class="validate">
+              <label for="cityInput">City</label>
+            </div>
+
+            <!-- state -->
+            <div class="input-field col s6">
+              <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">AL</option>
+                <option value="2">AK</option>
+                <option value="3">AZ</option>
+                <option value="4">AR</option>
+                <option value="5">CA</option>
+                <option value="6">CO</option>
+                <option value="7">CT</option>
+                <option value="8">DE</option>
+                <option value="9">FL</option>
+                <option value="10">GA</option>
+                <option value="11">HI</option>
+                <option value="12">ID</option>
+                <option value="13">IL</option>
+                <option value="14">IN</option>
+                <option value="15">IA</option>
+                <option value="16">KS</option>
+                <option value="5">KY</option>
+                <option value="6">LA</option>
+                <option value="7">ME</option>
+                <option value="8">MD</option>
+                <option value="9">MA</option>
+                <option value="10">MI</option>
+                <option value="11">MN</option>
+                <option value="12">MS</option>
+                <option value="1">MO</option>
+                <option value="2">MT</option>
+                <option value="3">NE</option>
+                <option value="4">NV</option>
+                <option value="5">NH</option>
+                <option value="6">NJ</option>
+                <option value="7">NM</option>
+                <option value="8">NY</option>
+                <option value="9">NC</option>
+                <option value="10">ND</option>
+                <option value="11">OH</option>
+                <option value="12">OK</option>
+                <option value="1">OR</option>
+                <option value="2">PA</option>
+                <option value="3">RI</option>
+                <option value="4">SC</option>
+                <option value="5">SD</option>
+                <option value="6">TN</option>
+                <option value="7">TX</option>
+                <option value="8">UT</option>
+                <option value="9">VT</option>
+                <option value="10">VA</option>
+                <option value="11">WA</option>
+                <option value="12">WV</option>
+                <option value="11">WI</option>
+                <option value="12">WY</option>
+              </select>
+              <label>State</label>
+            </div>
+
+          </div>
+
+          <!-- Phone -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="phoneInput" type="text" class="validate">
+              <label for="phoneInput">Restaurant Phone Number</label>
+            </div>
+          </div>
+
+          <!-- website -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="websiteInput" type="text" class="validate">
+              <label for="websiteInput">Restaurant URL</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="switch col s6">
+              <!-- <label for="first_name">Would you like an email?</label> -->
+              <h6>Would you like an email sent?</h6>
+              <label>
+                Off
+                <input id="reminderInput" type="checkbox">
+                <span class="lever"></span>
+                On
+              </label>
+            </div>
+            <div class="col s6">
+              <h6>Set reminder date</h6>
+              <input id="dateInput" type="date" class="datepicker">
+
+            </div>
+
+          </div>
+
+
+        </form>
       </div>
-    </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn waves-effect waves-light" type="submit" name="action" id = "addToDo">Submit <i class="material-icons right">send</i>
+      </button>
+    </div>
   </div>
 
 </header>
