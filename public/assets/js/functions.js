@@ -47,22 +47,32 @@ $(document).ready(function(){
    });
   }); //closes out submit button on click
 
+  function check(){
+    var check = $("#myCheckbox").val();
+    if (check == "on"){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
   $('#addToDo').on('click',function(e){
-    console.log("click");
+    console.log("button clicked");
     e.preventDefault();
     var emailRemind = $('#mySwitch').prop("checked");
     console.log(emailRemind);
     var newItem = {
       title: $('#nameInput').val().trim(),
       description: $('#commentInput').val().trim(),
-      //remind: $('#remind').val().trim(),
+      remind: $('#myCheckbox')[0].checked,
       remindTime: $('#timeInput').val().trim(),
     };
+    console.log("new click:");
     console.log(newItem);
-    var currentURL = window.location.origin;
-    $.post(currentURL + '/addToList', newItem, function(data){
-
-    });
+    // var currentURL = window.location.origin;
+    // $.post(currentURL + '/addToList', newItem, function(data){
+    //   window.location.href = "/mylist";
+    // });
   });
 
 }); //closes out document.ready

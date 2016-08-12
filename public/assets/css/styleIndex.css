@@ -1,7 +1,7 @@
 
-/*html{
-	height: 100%;
-}*/
+html{
+	overflow-y: hidden;
+}
 
 @font-face {
 	font-family: "Lobster";
@@ -11,13 +11,13 @@
 
 
 header,main,footer{
-	padding-left: 350px;
+	padding-left: 300px;
 
 }
 
 .brand-logo.center {
 	font-family: "Lobster";
-	color:#fff;	
+	color:#fff;
 }
 
 .nav-wrapper{

@@ -46,19 +46,19 @@ function initMap() {
 
 function makePin(map, position){
 	var content = '<div id="iw-container">' +
-										'<div class="iw-title">{{this.name}}</div>' +
+					'<div class="iw-title">{{this.name}}</div>' +
 
-										'<div class="iw-content">' +
-											'<img src="http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png" height="25" width="75">' +
-											'<div class="iw-subTitle">Contact</div>' +
-											'<p>{{this.display_address}}<br>'+
-											'<br>Phone: {{this.display_phone}} <br>Website: {{this.url}}'+
-											'<br>_______________________________________________</p>'+
+					'<div class="iw-content">' +
+						'<img src="http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png" height="25" width="75">' +
+						'<div class="iw-subTitle">Contact</div>' +
+						'<p>{{this.display_address}}<br>'+
+						'<br>Phone: {{this.display_phone}} <br>Website: {{this.url}}'+
+						'<br>_______________________________________________</p>'+
 
-											'<div class="iw-subTitle"><a id="xbutton" class="waves-effect waves-light btn xbutton">Add to list</a></div>' +
-										'</div>' +
+						'<div class="iw-subTitle"><a id="xbutton" class="waves-effect waves-light btn xbutton">Add to list</a></div>' +
+					'</div>' +
 
-									'</div>';
+				'</div>';
 
 	// A new Info Window is created and set content
 	var infowindow = new google.maps.InfoWindow({
