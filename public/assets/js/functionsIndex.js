@@ -262,7 +262,7 @@ function makePin(map, position){
 		var iwCloseBtn = iwOuter.next();
 
 		// Apply the desired effect to the close button
-		iwCloseBtn.css({opacity: '1', right: '38px', top: '3px', border: '7px solid #ff0000', 'border-radius': '13px', 'box-shadow': '0 0 5px #3990B9'});
+		iwCloseBtn.css({opacity: '1', right: '68px', top: '3px', border: '7px solid #ff0000', 'border-radius': '13px', 'box-shadow': '0 0 5px #3990B9'});
 
 		// If the content of infowindow not exceed the set maximum height, then the gradient is removed.
 		if($('.iw-content').height() < 140){
