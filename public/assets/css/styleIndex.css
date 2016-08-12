@@ -1,11 +1,16 @@
 
-/*html{
-	height: 100%;
-}*/
+html{
+	overflow-y:hidden;
+}
 
 @font-face {
 	font-family: "Lobster";
 	src: url("https://fonts.googleapis.com/css?family=Lobster");
+}
+
+@font-face {
+	font-family: "Cabin";
+	src: url("https://fonts.googleapis.com/css?family=Cabin");
 }
 
 
@@ -26,6 +31,9 @@ header,main,footer{
 
 #toDoTab{
 	background-color: #c09f80;
+	background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+	font-family: "Cabin";
+	font-size:20px;
 }
 
 .collapsible-header{
@@ -36,6 +44,20 @@ i.large.material-icons {
 	background-color: #565656;
 }
 
+#userComment {
+	background-color:beige;
+	font-family:"Cabin";
+	font-size:15px;
+}
+
+.iw-title{
+	background-color: #565656;
+	font-family: "Lobster";
+}
+
+#xbutton.waves-effect.waves-light.btn.xbutton{
+	background-color: #76323f;
+}
 
 
 
@@ -111,16 +133,19 @@ fixed-action-btn{
 	width: 300px !important;
 	top: 15px !important;
 	left: 0px !important;
-	background-color: #fff;
+	background-color: #CFD8DC;
 	box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
-	border: 1px solid rgba(72, 181, 233, 0.6);
-	border-radius: 2px 2px 10px 10px;
+	/*border: 1px solid rgba(72, 181, 233, 0.6); */
+	border:solid;
+	border-radius: 10px 10px 10px 10px;
 }
 #iw-container {
 	margin-bottom: 10px;
 }
+/*Location title*/
 #iw-container .iw-title {
-	font-family: 'Open Sans Condensed', sans-serif;
+	/*font-family: 'Open Sans Condensed', sans-serif;*/
+	font-family: 'Lobster';
 	font-size: 22px;
 	font-weight: 400;
 	padding: 10px;
@@ -129,9 +154,12 @@ fixed-action-btn{
 	margin: 0;
 	border-radius: 2px 2px 0 0;
 }
+/*Location content */
 #iw-container .iw-content {
 	/*font-family: 'Open Sans Condensed', sans-serif;*/
+	font-family:"Cabin";
 	font-size: 13px;
+	background-color:#CFD8DC;
 	line-height: 18px;
 	font-weight: 400;
 	margin-right: 1px;
@@ -142,7 +170,7 @@ fixed-action-btn{
 }
 .iw-content img {
 	float: right;
-	margin: 0 5px 5px 10px;
+	margin: 0 40px 5px 10px;
 }
 .iw-subTitle {
 	font-size: 16px;

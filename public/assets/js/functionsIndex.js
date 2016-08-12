@@ -17,7 +17,146 @@ function initMap() {
 	var map = new google.maps.Map(document.getElementById('googleMaps'), {
 		center: austin,
 		scrollwheel: true,
-		zoom: 10
+		zoom: 10,
+		styles: [
+    {
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#ff4400"
+            },
+            {
+                "saturation": -68
+            },
+            {
+                "lightness": -4
+            },
+            {
+                "gamma": 0.72
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.icon"
+    },
+    {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "hue": "#0077ff"
+            },
+            {
+                "gamma": 3.1
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "hue": "#00ccff"
+            },
+            {
+                "gamma": 0.44
+            },
+            {
+                "saturation": -33
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "stylers": [
+            {
+                "hue": "#44ff00"
+            },
+            {
+                "saturation": -23
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "hue": "#007fff"
+            },
+            {
+                "gamma": 0.77
+            },
+            {
+                "saturation": 65
+            },
+            {
+                "lightness": 99
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "gamma": 0.11
+            },
+            {
+                "weight": 5.6
+            },
+            {
+                "saturation": 99
+            },
+            {
+                "hue": "#0091ff"
+            },
+            {
+                "lightness": -86
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": -48
+            },
+            {
+                "hue": "#ff5e00"
+            },
+            {
+                "gamma": 1.2
+            },
+            {
+                "saturation": -23
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "saturation": -64
+            },
+            {
+                "hue": "#ff9100"
+            },
+            {
+                "lightness": 16
+            },
+            {
+                "gamma": 0.47
+            },
+            {
+                "weight": 2.7
+            }
+        ]
+    }
+]
+
 
 
 	});
@@ -46,7 +185,7 @@ function initMap() {
 
 function makePin(map, position){
 	var content = '<div id="iw-container">' +
-										'<div class="iw-title">{{this.name}}</div>' +
+										'<div class="iw-title" style="background-color:#565656;">{{this.name}}</div>' +
 
 										'<div class="iw-content">' +
 											'<img src="http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png" height="25" width="75">' +
@@ -123,7 +262,7 @@ function makePin(map, position){
 		var iwCloseBtn = iwOuter.next();
 
 		// Apply the desired effect to the close button
-		iwCloseBtn.css({opacity: '1', right: '38px', top: '3px', border: '7px solid #48b5e9', 'border-radius': '13px', 'box-shadow': '0 0 5px #3990B9'});
+		iwCloseBtn.css({opacity: '1', right: '38px', top: '3px', border: '7px solid #ff0000', 'border-radius': '13px', 'box-shadow': '0 0 5px #3990B9'});
 
 		// If the content of infowindow not exceed the set maximum height, then the gradient is removed.
 		if($('.iw-content').height() < 140){

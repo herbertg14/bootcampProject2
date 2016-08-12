@@ -33,7 +33,7 @@
       {{#each user}}
       <li>
         <div class="collapsible-header"><i class="material-icons">label</i>{{this.dataValues.title}}</div>
-        <div class="collapsible-body"><p>{{this.dataValues.description}}</p></div>
+        <div class="collapsible-body"><p id="userComment">{{this.dataValues.description}}</p></div>
       </li>
       {{/each}}
     </ul>
@@ -42,7 +42,7 @@
   <!-- search modal -->
   <div id="searchModal" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h5>Search places by destionation</h5>
+      <h5>Search places by destination</h5>
       <form class="col s12">
         <div class="row">
           <div class="input-field col s12">
