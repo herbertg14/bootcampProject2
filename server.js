@@ -3,13 +3,24 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-
-
-// var Users = require("./models")["Users"];
-// var ToDoList = require("./models")["ToDoList"];
-
-// Users.sync();
-// ToDoList.sync();
+var models = require('./models');
+var moment = require('moment');
+var nodemailer = require('nodemailer');
+var sparkPostTransport = require('nodemailer-sparkpost-transport');
+var transporter = nodemailer.createTransport(sparkPostTransport({sparkPostApiKey: "a694a29aeadc75c9a943f51ad1fd8b5afc8f816f"}));
+//this works
+// transporter.sendMail({
+//   from: 'sandbox@sparkpostbox.com',
+//   to: 'gutriv3@gmail.com',
+//   subject: 'Very important stuff',
+//   text: 'Plain text',
+// }, function(err, info) {
+//   if (err) {
+//     console.log('Error: ' + err);
+//   } else {
+//     console.log('Success: ' + info);
+// 		console.log(info);
+// }});
 
 var app = express();
 
@@ -33,6 +44,24 @@ app.set('view engine', 'handlebars');
 
 var routes = require('./controllers/controller.js');
 app.use('/', routes);
+
+setInterval(function(){
+	models.ToDoList.findAll({where: {remind: true}}).then(function(data){
+		console.log(data);
+		for (var i = 0; i < data.length; i++){
+			var time = moment().diff(data[i].dataValues.remindTime, "days");
+			console.log(time);
+			if(time === 0){
+				transporter.sendMail({
+				  from: 'sandbox@sparkpostbox.com',
+				  to: data[i].dataValues.email,
+				  subject: 'Your eatinerary reminder',
+				  text: "Your eatinerary to do: "+ data[i].dataValues.title + " is coming up soon. Don't forget!",
+				});
+			}
+		}
+	});
+}, 100*60*60*24);
 
 var PORT = process.env.PORT || 5000;
 app.listen(PORT, function(){

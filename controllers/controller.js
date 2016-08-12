@@ -82,7 +82,7 @@ router.post('/addToList', function(req,res){
 	console.log('user added an item to their list');
 	models.ToDoList.create({
 		username: req.session.username,
-		email: req.session.email,
+		email: req.session.user_email,
 		title: req.body.title,
 		description: req.body.description,
 		remind: false,
