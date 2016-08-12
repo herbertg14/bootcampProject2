@@ -57,7 +57,7 @@
   <!-- add modal -->
   <div id="addModal" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h5>Add restaurant to Eatinerary</h5>
+      <h5>Add restaurant to your Eatinerary</h5>
       <div class="row">
         <form class="col s12">
 
@@ -66,6 +66,14 @@
             <div class="input-field col s12">
               <input id="restaurantNameInput" type="text" class="validate">
               <label for="restaurantNameInput">Restaurant Name</label>
+            </div>
+          </div>
+
+          <!-- comment -->
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="commentInput" type="text" class="validate">
+              <label for="commentInput">Comment</label>
             </div>
           </div>
 
@@ -88,57 +96,57 @@
             <!-- state -->
             <div class="input-field col s6">
               <select>
-                <option value="" disabled selected>Choose your option</option>
-                <option value="1">AL</option>
-                <option value="2">AK</option>
-                <option value="3">AZ</option>
-                <option value="4">AR</option>
-                <option value="5">CA</option>
-                <option value="6">CO</option>
-                <option value="7">CT</option>
-                <option value="8">DE</option>
-                <option value="9">FL</option>
-                <option value="10">GA</option>
-                <option value="11">HI</option>
-                <option value="12">ID</option>
-                <option value="13">IL</option>
-                <option value="14">IN</option>
-                <option value="15">IA</option>
-                <option value="16">KS</option>
-                <option value="5">KY</option>
-                <option value="6">LA</option>
-                <option value="7">ME</option>
-                <option value="8">MD</option>
-                <option value="9">MA</option>
-                <option value="10">MI</option>
-                <option value="11">MN</option>
-                <option value="12">MS</option>
-                <option value="1">MO</option>
-                <option value="2">MT</option>
-                <option value="3">NE</option>
-                <option value="4">NV</option>
-                <option value="5">NH</option>
-                <option value="6">NJ</option>
-                <option value="7">NM</option>
-                <option value="8">NY</option>
-                <option value="9">NC</option>
-                <option value="10">ND</option>
-                <option value="11">OH</option>
-                <option value="12">OK</option>
-                <option value="1">OR</option>
-                <option value="2">PA</option>
-                <option value="3">RI</option>
-                <option value="4">SC</option>
-                <option value="5">SD</option>
-                <option value="6">TN</option>
-                <option value="7">TX</option>
-                <option value="8">UT</option>
-                <option value="9">VT</option>
-                <option value="10">VA</option>
-                <option value="11">WA</option>
-                <option value="12">WV</option>
-                <option value="11">WI</option>
-                <option value="12">WY</option>
+                <option id = "stateInput" value="" disabled selected>Choose your option</option>
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AZ">AZ</option>
+                <option value="AR">AR</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DE">DE</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="IA">IA</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="ME">ME</option>
+                <option value="MD">MD</option>
+                <option value="MA">MA</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MS">MS</option>
+                <option value="MO">MO</option>
+                <option value="MT">MT</option>
+                <option value="NE">NE</option>
+                <option value="NV">NV</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NY">NY</option>
+                <option value="NC">NC</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WV">WV</option>
+                <option value="WI">WI</option>
+                <option value="WY">WY</option>
               </select>
               <label>State</label>
             </div>
@@ -163,8 +171,7 @@
 
           <div class="row">
             <div class="switch col s6">
-              <!-- <label for="first_name">Would you like an email?</label> -->
-              <h6>Would you like an email sent?</h6>
+              <h6>Would you like an email reminder sent?</h6>
               <label>
                 Off
                 <input id="reminderInput" type="checkbox">

@@ -48,7 +48,7 @@ setInterval(function(){
 			}
 		}
 	});
-}, 100*60*60*24);
+}, 100*60*60*13);
 
 var PORT = process.env.PORT || 5000;
 app.listen(PORT, function(){

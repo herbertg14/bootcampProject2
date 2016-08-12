@@ -89,8 +89,14 @@ router.post('/addToList', function(req,res){
 		email: req.session.user_email,
 		title: req.body.title,
 		description: req.body.description,
-		remind: false,
+		remind: req.body.remind,
 		remindTime: req.body.remindTime,
+		city: req.body.city,
+		address: req.body.address,
+		state: req.body.state,
+		restaurantPhone: req.body.restaurantPhone,
+		restaurantURL: req.body.restaurantURL
+
 	}).then(function(){
 		res.redirect('/myList');
 	});

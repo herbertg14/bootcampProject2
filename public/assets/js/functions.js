@@ -67,20 +67,25 @@ $(document).ready(function(){
   $('#addToDo').on('click',function(e){
     console.log("button clicked");
     e.preventDefault();
-    var emailRemind = $('#mySwitch').prop("checked");
-    console.log(emailRemind);
+    //var emailRemind = $('#mySwitch').prop("checked");
+    //console.log(emailRemind);
     var newItem = {
-      title: $('#nameInput').val().trim(),
+      title: $('#restaurantNameInput').val().trim(),
       description: $('#commentInput').val().trim(),
-      remind: $('#myCheckbox')[0].checked,
-      remindTime: $('#timeInput').val().trim(),
+      remind: $('#reminderInput')[0].checked,
+      remindTime: $('#dateInput').val().trim(),
+      city: $('#cityInput').val().trim(),
+      address: $('#addressInput').val().trim(),
+      state: $('#stateInput').val().trim(),
+      restaurantPhone: $('#phoneInput').val().trim(),
+      restaurantURL: $('#websiteInput').val().trim()
     };
     console.log("new click:");
     console.log(newItem);
-    // var currentURL = window.location.origin;
-    // $.post(currentURL + '/addToList', newItem, function(data){
-    //   window.location.href = "/mylist";
-    // });
+    var currentURL = window.location.origin;
+    $.post(currentURL + '/addToList', newItem, function(data){
+      window.location.href = "/mylist";
+    });
   });
 
   $("#searchButton").on("click",function(){
