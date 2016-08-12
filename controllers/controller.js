@@ -112,7 +112,7 @@ router.post('/yelp', function(req,res){
 	console.log(req.body.search);
 	yelp.search({location: 'Montreal' })
 	.then(function (data) {
-	  console.log(data);
+	  // console.log(data);
 		res.send(data);
 	})
 	.catch(function (err) {

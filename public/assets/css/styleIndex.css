@@ -76,7 +76,7 @@ i.large.material-icons {
 
 #searchModal{
 	/*height: */
-	max-height: 200px !important;
+	max-height: 400px !important;
 	overflow-y: hidden !important;
 }
 
