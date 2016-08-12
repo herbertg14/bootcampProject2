@@ -26,6 +26,18 @@ module.exports = {
       remindTime: {
         type: Sequelize.STRING
       },
+      restaurantPhone: {
+        type: Sequelize.STRING
+      },
+      restaurantURL: {
+        type: Sequelize.STRING
+      },
+      address: {
+        type: Sequelize.STRING
+      },
+      city: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
