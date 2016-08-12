@@ -4,6 +4,14 @@ var models = require('../models');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var sha1 = require('sha1');
+var Yelp = require('yelp');
+
+var yelp = new Yelp({
+  consumer_key: 'hsHd6BVA10xYWbvnZm1i5g',
+  consumer_secret: '7KhLRiEPkLUYedLyYwj-lA-WSaE',
+  token: 'hqhmDxd8ePISP7dpERvMjjQ3iozrNJ8Z',
+  token_secret: 'jfzDO7m_on8qWK3b1fnDfxVc0YU',
+});
 
 router.get('/', function(req,res) {
 	res.redirect('/login');
@@ -98,6 +106,19 @@ router.get('/logout', function(req,res){
 	req.session.destroy(function(err) {
      res.redirect('/');
   });
+});
+
+router.post('/yelp', function(req,res){
+	console.log(req.body.search);
+	yelp.search({location: 'Montreal' })
+	.then(function (data) {
+	  console.log(data);
+		res.send(data);
+	})
+	.catch(function (err) {
+	  console.error(err);
+	});
+	// res.send(req.body.search);
 });
 
 module.exports = router;

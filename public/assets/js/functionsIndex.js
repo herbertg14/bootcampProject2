@@ -162,8 +162,6 @@ function initMap() {
     }
 ]
 
-
-
 	});
 
 	// set the geolocation to you
@@ -307,16 +305,6 @@ function fitAll(map, markers){
 	}
 	map.fitBounds(bounds);
 }
-
-$("#searchButton").on("click",function(){
-	var ck = "hsHd6BVA10xYWbvnZm1i5g";
-	var cs = "7KhLRiEPkLUYedLyYwj-lA-WSaE";
-	var token = "hqhmDxd8ePISP7dpERvMjjQ3iozrNJ8Z";
-	var ts = "jfzDO7m_on8qWK3b1fnDfxVc0YU";
-	var searchQuery = $("#searchInput").val();
-	console.log(searchQuery);
-})
-// google.maps.event.addDomListener(window, 'load', initMap);
 
 $(".xbutton").on("click",".container",function(){
 	console.log("adding to todolist");
