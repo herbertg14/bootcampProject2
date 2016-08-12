@@ -34,7 +34,7 @@ router.post('/signIn', function(req,res){
 				// the user id to the session
 				req.session.user_id = user.id;
 				// and the user's email.
-				req.session.user_email = user.email; 
+				req.session.user_email = user.email;
 				console.log("user has been signed in");
 				res.redirect('/myList');
 			} else {
@@ -87,6 +87,12 @@ router.post('/addToList', function(req,res){
 		remind: false,
 		remindTime: req.body.remindTime,
 	}).then(function(){
+		res.redirect('/myList');
+	});
+});
+
+router.get('/myList/deleteItem/:itemID', function(req,res){
+	models.ToDoList.destroy({where: {id: req.params.itemID}}).then(function(){
 		res.redirect('/myList');
 	});
 });
