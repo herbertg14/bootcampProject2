@@ -187,13 +187,8 @@ function initMap() {
 	// var pins =[pin, otherpin];
 	fitAll();
 
-	deleteMarkers();
-	fitAll();
-}
-
-function deleteMarkers() {
-	markers = [];
-	clearMarkers();
+	// deleteMarkers();
+	// fitAll();
 }
 
 function makePin(position){
@@ -294,14 +289,29 @@ function makePin(position){
 }
 
 function setMapOnAll(map) {
-	for (var i = 0; i < markers.length; i++) {
-		markers[i].setMap(map);
-	}
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
 }
 
+// Removes the markers from the map, but keeps them in the array.
 function clearMarkers() {
-	setMapOnAll(null);
+  setMapOnAll(null);
 }
+
+// Shows any markers currently in the array.
+function showMarkers() {
+  setMapOnAll(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+}
+
+
+
 
 function fitAll(){
 	var bounds = new google.maps.LatLngBounds();
@@ -328,6 +338,14 @@ $("#searchButton").on("click",function(){
 		range: parseInt($("#rangeSearch").val().trim())
 	}
 	console.log(searchRequest);
+	var austin = {lat:31.0111, lng:-97.327};
+	var mexico = {lat:30.713, lng:-108.327};
+	// makePin(austin);
+	deleteMarkers();
+
+	makePin(austin);
+	makePin(mexico);
+	fitAll();
 	$.post(currentURL + "/yelp", searchRequest, function(data){
 		console.log("data sent back");
 		console.log(data);
