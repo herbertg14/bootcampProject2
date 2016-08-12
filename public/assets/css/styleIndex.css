@@ -40,14 +40,12 @@ header,main,footer{
 	background-color:rgba(38,168,156,0.3);
 }
 
-i.large.material-icons {
-	background-color: #565656;
+#commentBody{
+	background-color:rgba(118, 50, 63,0.8);
 }
 
-#userComment {
-	background-color:beige;
-	font-family:"Cabin";
-	font-size:15px;
+i.large.material-icons {
+	background-color: #565656;
 }
 
 .iw-title{
@@ -58,6 +56,81 @@ i.large.material-icons {
 #xbutton.waves-effect.waves-light.btn.xbutton{
 	background-color: #76323f;
 }
+
+#deleteButton {
+	background-color:#76323F;
+	color:white;
+	font-family:'Lobster';
+	text-align: center;
+	font-size:15px;
+}
+
+#info-title {
+	text-align:center;
+	font-family:'Lobster';
+	font-size:20px;
+	color:white;
+	text-decoration:underline;
+	background-color:#76323F;
+	height:50px;
+	padding-top:12px;
+}
+
+#user-rest{
+	font-size:15px;
+	font-family:'Cabin';
+	line-height:.1;
+}
+
+#rest-add{
+	font-size:15px;
+	font-family:"Cabin";
+	line-height:.1;
+}
+
+#rest-city{
+	font-size:15px;
+	font-family:"Cabin";
+	line-height:.1;
+}
+
+#rest-state{
+	font-size:15px;
+	font-family:"Cabin";
+	line-height:.1;
+}
+
+#rest-num{
+	font-size:15px;
+	font-family:"Cabin";
+	line-height:.1;
+}
+
+#rest-link{
+	font-size:15px;
+	font-family:"Cabin";
+	line-height:.1;
+}
+
+#rest-comment {
+	font-family:"Cabin";
+	font-size:15px;
+	line-height:.1;
+}
+
+#addToDo {
+	background-color:#76323F;
+}
+
+.lever {
+	background-color:gray;
+}
+
+switch label.input[type=checkbox]:checked+.lever:after {
+	background-color:#76323f;
+}
+
+
 
 
 
