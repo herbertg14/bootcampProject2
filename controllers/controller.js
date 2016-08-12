@@ -22,12 +22,12 @@ router.get('/login', function(req,res) {
 });
 
 router.post('/signIn', function(req,res){
-	console.log("sign in route hit");
+	// console.log("sign in route hit");
 	models.Users.findOne({
 		where: {username: req.body.username}
 	}).then(function(user) {
 		if (user == null){
-			console.log("user inputed a username the doesn't exist");
+			// console.log("user inputed a username the doesn't exist");
 			res.send('userName');
 		} else {
 			if (sha1(req.body.password) == user.password){
@@ -40,10 +40,10 @@ router.post('/signIn', function(req,res){
 				req.session.user_id = user.id;
 				// and the user's email.
 				req.session.user_email = user.email;
-				console.log("user has been signed in");
+				// console.log("user has been signed in");
 				res.redirect('/myList');
 			} else {
-				console.log("password didn't match");
+				// console.log("password didn't match");
 				res.send('password');
 			}
 	}
@@ -55,19 +55,19 @@ router.get('/myList', function(req,res){
 		var hbsObject = {user : data};
 		res.render('index', hbsObject);
 	});
-	console.log("should be rendering index.handlebars");
+	// console.log("should be rendering index.handlebars");
 	// res.render('index');
 });
 
 //after the user signs up redirect them back to the main login page to now sign in.
 router.post('/login/new', function(req,res) {
-	console.log("new user route hit");
+	// console.log("new user route hit");
   models.Users.findOne({ where: {username: req.body.username} }).then(function(user) {
   if(user) { // if the record already exists in the db then send an alert telling the user that the username already exist
-		console.log("the user selected a username already in the database");
+		// console.log("the user selected a username already in the database");
     res.send("alert");
   } else {
-		console.log("new user being created");
+		// console.log("new user being created");
     models.Users.create({
         firstName: req.body.firstName,
         LastName: req.body.lastName,
@@ -75,7 +75,7 @@ router.post('/login/new', function(req,res) {
         email: req.body.email,
         password: sha1(req.body.password)
     }).then(function(){
-			console.log("redirecting");
+			// console.log("redirecting");
       res.send('reload');
     });
   }
@@ -83,7 +83,7 @@ router.post('/login/new', function(req,res) {
 });
 
 router.post('/addToList', function(req,res){
-	console.log('user added an item to their list');
+	// console.log('user added an item to their list');
 	models.ToDoList.create({
 		username: req.session.username,
 		email: req.session.user_email,
@@ -115,8 +115,12 @@ router.get('/logout', function(req,res){
 });
 
 router.post('/yelp', function(req,res){
-	console.log(req.body.search);
-	yelp.search({location: 'Montreal' })
+	console.log(req.body);
+	yelp.search({
+		term: req.body.keyword,
+		location: req.body.city + ", " + req.body.state,
+		limit: req.body.range
+	})
 	.then(function (data) {
 	  // console.log(data);
 		res.send(data);

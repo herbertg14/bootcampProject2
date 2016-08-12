@@ -14,154 +14,156 @@ $('.datepicker').pickadate({
 	selectYears: 15 // Creates a dropdown of 15 years to control year
 });
 
+var map;
+var markers = [];
+
 function initMap() {
 	// marker position
 	var austin = {lat:30.407, lng:-97.959};
 	var dallas = {lat:32.6945, lng:-96.81996};
 
-	var map = new google.maps.Map(document.getElementById('googleMaps'), {
+	map = new google.maps.Map(document.getElementById('googleMaps'), {
 		center: austin,
 		scrollwheel: true,
 		zoom: 10,
 		styles: [
-    {
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "hue": "#ff4400"
-            },
-            {
-                "saturation": -68
-            },
-            {
-                "lightness": -4
-            },
-            {
-                "gamma": 0.72
-            }
-        ]
-    },
-    {
-        "featureType": "road",
-        "elementType": "labels.icon"
-    },
-    {
-        "featureType": "landscape.man_made",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "hue": "#0077ff"
-            },
-            {
-                "gamma": 3.1
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "stylers": [
-            {
-                "hue": "#00ccff"
-            },
-            {
-                "gamma": 0.44
-            },
-            {
-                "saturation": -33
-            }
-        ]
-    },
-    {
-        "featureType": "poi.park",
-        "stylers": [
-            {
-                "hue": "#44ff00"
-            },
-            {
-                "saturation": -23
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "labels.text.fill",
-        "stylers": [
-            {
-                "hue": "#007fff"
-            },
-            {
-                "gamma": 0.77
-            },
-            {
-                "saturation": 65
-            },
-            {
-                "lightness": 99
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "gamma": 0.11
-            },
-            {
-                "weight": 5.6
-            },
-            {
-                "saturation": 99
-            },
-            {
-                "hue": "#0091ff"
-            },
-            {
-                "lightness": -86
-            }
-        ]
-    },
-    {
-        "featureType": "transit.line",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "lightness": -48
-            },
-            {
-                "hue": "#ff5e00"
-            },
-            {
-                "gamma": 1.2
-            },
-            {
-                "saturation": -23
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-            {
-                "saturation": -64
-            },
-            {
-                "hue": "#ff9100"
-            },
-            {
-                "lightness": 16
-            },
-            {
-                "gamma": 0.47
-            },
-            {
-                "weight": 2.7
-            }
-        ]
-    }
-]
-
+	    {
+	        "elementType": "geometry",
+	        "stylers": [
+	            {
+	                "hue": "#ff4400"
+	            },
+	            {
+	                "saturation": -68
+	            },
+	            {
+	                "lightness": -4
+	            },
+	            {
+	                "gamma": 0.72
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "road",
+	        "elementType": "labels.icon"
+	    },
+	    {
+	        "featureType": "landscape.man_made",
+	        "elementType": "geometry",
+	        "stylers": [
+	            {
+	                "hue": "#0077ff"
+	            },
+	            {
+	                "gamma": 3.1
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "water",
+	        "stylers": [
+	            {
+	                "hue": "#00ccff"
+	            },
+	            {
+	                "gamma": 0.44
+	            },
+	            {
+	                "saturation": -33
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "poi.park",
+	        "stylers": [
+	            {
+	                "hue": "#44ff00"
+	            },
+	            {
+	                "saturation": -23
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "water",
+	        "elementType": "labels.text.fill",
+	        "stylers": [
+	            {
+	                "hue": "#007fff"
+	            },
+	            {
+	                "gamma": 0.77
+	            },
+	            {
+	                "saturation": 65
+	            },
+	            {
+	                "lightness": 99
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "water",
+	        "elementType": "labels.text.stroke",
+	        "stylers": [
+	            {
+	                "gamma": 0.11
+	            },
+	            {
+	                "weight": 5.6
+	            },
+	            {
+	                "saturation": 99
+	            },
+	            {
+	                "hue": "#0091ff"
+	            },
+	            {
+	                "lightness": -86
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "transit.line",
+	        "elementType": "geometry",
+	        "stylers": [
+	            {
+	                "lightness": -48
+	            },
+	            {
+	                "hue": "#ff5e00"
+	            },
+	            {
+	                "gamma": 1.2
+	            },
+	            {
+	                "saturation": -23
+	            }
+	        ]
+	    },
+	    {
+	        "featureType": "transit",
+	        "elementType": "labels.text.stroke",
+	        "stylers": [
+	            {
+	                "saturation": -64
+	            },
+	            {
+	                "hue": "#ff9100"
+	            },
+	            {
+	                "lightness": 16
+	            },
+	            {
+	                "gamma": 0.47
+	            },
+	            {
+	                "weight": 2.7
+	            }
+	        ]
+	    }
+			]
 	});
 
 	// set the geolocation to you
@@ -179,14 +181,17 @@ function initMap() {
 	// 	});
 	// }
 
-	var pin = makePin(map, austin);
-	var otherpin = makePin(map, dallas);
+	makePin(austin);
+	makePin(dallas);
 
-	var pins =[pin, otherpin];
-	fitAll(map,pins);
+	// var pins =[pin, otherpin];
+	fitAll();
+
+	// deleteMarkers();
+	// fitAll();
 }
 
-function makePin(map, position){
+function makePin(position){
 	var content = '<div id="iw-container">' +
 
 					'<div class="iw-title" style="background-color:#565656;">{{this.name}}</div>' +
@@ -277,28 +282,38 @@ function makePin(map, position){
 			$(this).css({opacity: '1'});
 		});
 	});
-	return marker;
+	markers.push(marker);
+	console.log(markers);
+	// return marker;
+
 }
 
-function addPin(map, position){
-	var marker = new google.maps.Marker({
-		position: position,
-		map:map
-	});
-	return marker;
-};
-
-function addMessage(marker, message){
-	var infowindow = new google.maps.InfoWindow({
-		content: message
-	});
-
-	marker.addListener("click", function(){
-		infowindow.open(marker.get("map"), marker);
-	});
+function setMapOnAll(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
 }
 
-function fitAll(map, markers){
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+  setMapOnAll(null);
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+  setMapOnAll(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+}
+
+
+
+
+function fitAll(){
 	var bounds = new google.maps.LatLngBounds();
 	for (var i = 0; i < markers.length; i++) {
 	 bounds.extend(markers[i].getPosition());
@@ -306,6 +321,33 @@ function fitAll(map, markers){
 	map.fitBounds(bounds);
 }
 
+
+
 $(".xbutton").on("click",".container",function(){
 	console.log("adding to todolist");
 })
+
+$("#searchButton").on("click",function(){
+	console.log("button clicked");
+	var currentURL = window.location.origin;
+	console.log(currentURL + "/yelp");
+	var searchRequest = {
+		keyword: $("#keywordSearch").val().trim(),
+		city: $("#citySearch").val().trim(),
+		state:$("#stateSearch").val().trim(),
+		range: parseInt($("#rangeSearch").val().trim())
+	}
+	console.log(searchRequest);
+	var austin = {lat:31.0111, lng:-97.327};
+	var mexico = {lat:30.713, lng:-108.327};
+	// makePin(austin);
+	deleteMarkers();
+
+	makePin(austin);
+	makePin(mexico);
+	fitAll();
+	$.post(currentURL + "/yelp", searchRequest, function(data){
+		console.log("data sent back");
+		console.log(data);
+	});
+});

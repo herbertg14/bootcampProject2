@@ -34,10 +34,10 @@ app.use('/', routes);
 
 setInterval(function(){
 	models.ToDoList.findAll({where: {remind: true}}).then(function(data){
-		console.log(data);
+		// console.log(data);
 		for (var i = 0; i < data.length; i++){
 			var time = moment().diff(data[i].dataValues.remindTime, "days");
-			console.log(time);
+			// console.log(time);
 			if(time === 0){
 				transporter.sendMail({
 				  from: 'sandbox@sparkpostbox.com',

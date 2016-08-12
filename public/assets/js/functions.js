@@ -88,18 +88,6 @@ $(document).ready(function(){
     });
   });
 
-  $("#searchButton").on("click",function(){
-    console.log("button clicked");
-    var currentURL = window.location.origin;
-    console.log(currentURL + "/yelp");
-    var searchRequest = {
-      search: $("#searchInput").val().trim()
-    }
-    console.log(searchRequest);
-    $.post(currentURL + "/yelp", searchRequest, function(data){
-      console.log("data sent back");
-      console.log(data);
-    });
-  });
+
 
 }); //closes out document.ready
