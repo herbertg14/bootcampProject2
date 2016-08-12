@@ -43,7 +43,15 @@ $(document).ready(function(){
     };
    var currentURL = window.location.origin;
    $.post(currentURL + '/signIn', userInfo, function(data){
+    if (data == "userName"){
+      alert("you entered a username that doesn't exist");
+    }
+    else if (data == "password"){
+      alert('Your username and password did not match');
+    }
+    else {
     window.location.href = "/mylist";
+    }
    });
   }); //closes out submit button on click
 

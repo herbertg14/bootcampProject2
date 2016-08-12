@@ -34,8 +34,7 @@ router.post('/signIn', function(req,res){
 				// the user id to the session
 				req.session.user_id = user.id;
 				// and the user's email.
-				req.session.user_email = user.email;
-				console.log(req.session);
+				req.session.user_email = user.email; 
 				console.log("user has been signed in");
 				res.redirect('/myList');
 			} else {
@@ -90,6 +89,12 @@ router.post('/addToList', function(req,res){
 	}).then(function(){
 		res.redirect('/myList');
 	});
+});
+
+router.get('/logout', function(req,res){
+	req.session.destroy(function(err) {
+     res.redirect('/');
+  });
 });
 
 module.exports = router;
