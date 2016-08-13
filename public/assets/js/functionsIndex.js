@@ -18,6 +18,7 @@ var map;
 var markers = [];
 var count = 0;
 var pinsData = [];
+
 function initMap() {
 	// marker position
 	var austin = {lat:30.407, lng:-97.959};
@@ -313,11 +314,31 @@ function fitAll(){
 
 $(document).on("click",".xbutton",function(){
 	var id = parseInt(this.id);
-	console.log(pinsData[name]);
+	console.log(pinsData[id]);
+	var item = pinsData[id];
+	$("#addModal").openModal();
+	$("#restaurantNameInput").val(item.name);
+	$("#addressInput").val(item.location.display_address[0]);
+	$("#cityInput").val(item.location.city);
+	// $("#stateInput>option:value(AL)").prop("selected", true);
+	// $('#stateInput option').each(function(){
+	// 		if (this.value == ""){
+	// 			$(this).removeClass("selected");
+	// 		}
+	//     if (this.value == item.location.state_code) {
+	//         console.log("found " + this.value);
+	// 				// $(this).attr("selected","selected");
+	// 				$(this).addClass("active");
+	// 				$(this).addClass("selected");
+	//     }
+	// });
+	$("#stateInput").val(item.location.state_code).change();
+	$("#phoneInput").val(item.display_phone);
+	$("#websiteInput").val(item.url);
 })
 
 $("#searchButton").on("click",function(){
-	console.log("button clicked");
+	// console.log("button clicked");
 	var currentURL = window.location.origin;
 	console.log(currentURL + "/yelp");
 
