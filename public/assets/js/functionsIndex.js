@@ -214,7 +214,8 @@ function makePin(position, item){
 	var marker = new google.maps.Marker({
 		position: position,
 		map: map,
-		title: item.name
+		title: item.name,
+		animation: google.maps.Animation.DROP
 	});
 	// $("#"+ toString(count)).data("food", "bar");
 	// This event expects a click on a marker
