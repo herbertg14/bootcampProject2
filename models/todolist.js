@@ -11,6 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     restaurantURL: DataTypes.STRING,
     address: DataTypes.STRING,
     city: DataTypes.STRING,
+    state: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
