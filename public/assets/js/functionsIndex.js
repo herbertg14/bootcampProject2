@@ -198,7 +198,9 @@ function makePin(position, item){
 					'<div class="iw-content">' +
 						'<img src='  + item.rating_img_url +' height="25" width="83">' +
 						'<div class="iw-subTitle">Contact</div>' +
-						'<p>'+ item.location.display_address[0] +'<br>'+
+						'<p>'+ item.location.display_address[0] +
+						'<br>'+ item.location.display_address[1] +
+						'<br>' +
 						'<br>Phone: '+ item.display_phone +
 						'<br><a href='+ item.url +' target="_blank">More information</a>' +
 						'<br>_______________________________________________</p>'+
