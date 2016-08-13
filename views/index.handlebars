@@ -30,7 +30,16 @@
       {{#each user}}
       <li>
         <div class="collapsible-header"><i class="material-icons">label</i>{{this.dataValues.title}}</div>
-        <div class="collapsible-body"><p id="userComment">{{this.dataValues.description}}</p><a href = "/myList/deleteItem/{{this.dataValues.id}}" style = "text-align: center; font-size: 15px; color: #76323F">Delete Item</a></div>
+        <div class="collapsible-body" id="commentBody">
+            <h3 id="info-title">Restaurant Info</h3>
+            <p id="rest-add">Address: {{this.dataValues.address}}</p>
+            <p id="rest-city">City: {{this.dataValues.city}}</p>
+            <p id="rest-state">State: {{this.dataValues.state}}</p>
+            <p id="rest-num">Phone: {{this.dataValues.restaurantPhone}}
+            <p id="rest-link">Link: {{this.dataValues.restaurantURL}}</p>
+            <p id="rest-comment">Comment: {{this.dataValues.description}}</p>
+              <a href = "/myList/deleteItem/{{this.dataValues.id}}" id="deleteButton">Delete Item</a>
+        </div>
       </li>
       {{/each}}
     </ul>
