@@ -119,6 +119,10 @@ i.large.material-icons {
 	margin-left:-16px;
 }
 
+#rest-hyper:hover{
+	background:none;
+}
+
 #rest-link{
 	height:10px;
 }
@@ -189,7 +193,6 @@ fixed-action-btn{
     position: relative;
 		/*margin-bottom: auto;*/
     padding-bottom: 700px; // This is the aspect ratio
-		padding-right: 300px;
     /*height: 100% !important;*/
     overflow: hidden;
     width: 100%;
