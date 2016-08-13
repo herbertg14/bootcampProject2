@@ -199,7 +199,7 @@ function makePin(position, item){
 						'<br><a href='+ item.url +' target="_blank">More information</a>' +
 						'<br>_______________________________________________</p>'+
 
-						'<div class="iw-subTitle"><a id="'+ count +'" data="'+ item.location.state_code +'" class="waves-effect waves-light btn xbutton">Add to list</a></div>' +
+						'<div class="iw-subTitle"><a id="'+ count +'" data="'+ item.location.state_code +'" class="waves-effect waves-light btn xbutton" style="background-color:#76323f;">Add to list</a></div>' +
 					'</div>' +
 
 				'</div>';
