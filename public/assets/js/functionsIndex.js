@@ -191,15 +191,16 @@ function initMap() {
 	// fitAll();
 }
 
-function makePin(position){
+function makePin(position, item){
 	var content = '<div id="iw-container">' +
 
-					'<div class="iw-title" style="background-color:#565656;">{{this.name}}</div>' +
+					'<div class="iw-title" style="background-color:#565656;">'+ item.name +'</div>' +
 					'<div class="iw-content">' +
-						'<img src="http://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png" height="25" width="75">' +
+						'<img src='  + item.rating_img_url +' height="25" width="83">' +
 						'<div class="iw-subTitle">Contact</div>' +
-						'<p>{{this.display_address}}<br>'+
-						'<br>Phone: {{this.display_phone}} <br>Website: {{this.url}}'+
+						'<p>'+ item.location.display_address[0] +'<br>'+
+						'<br>Phone: '+ item.display_phone +
+						'<br><a href='+ item.url +' target="_blank">More information</a>' +
 						'<br>_______________________________________________</p>'+
 
 						'<div class="iw-subTitle"><a id="xbutton" class="waves-effect waves-light btn xbutton">Add to list</a></div>' +
@@ -217,7 +218,7 @@ function makePin(position){
 	var marker = new google.maps.Marker({
 		position: position,
 		map: map,
-		title:"{{this.title}}"
+		title: item.name
 	});
 
 	// This event expects a click on a marker
@@ -335,16 +336,10 @@ $("#searchButton").on("click",function(){
 	}
 	$("#keywordSearch").val("");
 	$("#citySearch").val("");
-	$("#stateSearch").val("");
-	// console.log(searchRequest);
-	// var austin = {lat:31.0111, lng:-97.327};
-	// var mexico = {lat:30.713, lng:-108.327};
-	// // makePin(austin);
+	// $("#stateSearch").val("");
+
 	deleteMarkers();
-	//
-	// makePin(austin);
-	// makePin(mexico);
-	// fitAll();
+
 	$.post(currentURL + "/yelp", searchRequest, function(data){
 		console.log("data sent back");
 		console.log(data.businesses);
@@ -352,8 +347,7 @@ $("#searchButton").on("click",function(){
 		for (var i = 0; i < list.length; i++){
 			var item = list[i];
 			var location = {lat:item.location.coordinate.latitude, lng:item.location.coordinate.longitude};
-			makePin(location);
-			// console.log(item.id);
+			makePin(location, item);
 		}
 		fitAll();
 	});
