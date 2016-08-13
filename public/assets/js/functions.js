@@ -80,8 +80,8 @@ $(document).ready(function(){
       restaurantPhone: $('#phoneInput').val().trim(),
       restaurantURL: $('#websiteInput').val().trim()
     };
-    // console.log("new click:");
-    // console.log(newItem);
+    console.log("new click:");
+    console.log(newItem);
     var currentURL = window.location.origin;
     $.post(currentURL + '/addToList', newItem, function(data){
       window.location.href = "/mylist";
