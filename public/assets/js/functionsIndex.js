@@ -16,7 +16,8 @@ $('.datepicker').pickadate({
 
 var map;
 var markers = [];
-
+var count = 0;
+var pinsData = [];
 function initMap() {
 	// marker position
 	var austin = {lat:30.407, lng:-97.959};
@@ -168,7 +169,7 @@ function initMap() {
 
 	// set the geolocation to you
 	// only works in internet explorer
-	// var yourPin = addPin(map,austin);
+	// var yourPin = addMarker(map,austin);
 	// if (navigator.geolocation){
 	// 	navigator.geolocation.getCurrentPosition(function(position){
 	// 		var pos = {
@@ -180,32 +181,24 @@ function initMap() {
 	// 		map.setCenter(pos);
 	// 	});
 	// }
-
-	// makePin(austin);
-	// makePin(dallas);
-
-	// var pins =[pin, otherpin];
-	// fitAll();
-
-	// deleteMarkers();
-	// fitAll();
 }
 
 function makePin(position, item){
+	pinsData.push(item);
 	var content = '<div id="iw-container">' +
 
 					'<div class="iw-title" style="background-color:#565656;">'+ item.name +'</div>' +
 					'<div class="iw-content">' +
-						'<img src='  + item.rating_img_url +' height="25" width="83">' +
+						'<img src='  + item.rating_img_url +' height="23" width="85">' +
 						'<div class="iw-subTitle">Contact</div>' +
 						'<p>'+ item.location.display_address[0] +
-						'<br>'+ item.location.display_address[1] +
+						'<br>'+ item.location.city + ', ' + item.location.state_code + ' ' + item.location.postal_code +
 						'<br>' +
 						'<br>Phone: '+ item.display_phone +
 						'<br><a href='+ item.url +' target="_blank">More information</a>' +
 						'<br>_______________________________________________</p>'+
 
-						'<div class="iw-subTitle"><a id="xbutton" class="waves-effect waves-light btn xbutton">Add to list</a></div>' +
+						'<div class="iw-subTitle"><a id="'+ count +'" data="'+ item.location.state_code +'" class="waves-effect waves-light btn xbutton">Add to list</a></div>' +
 					'</div>' +
 
 				'</div>';
@@ -222,7 +215,7 @@ function makePin(position, item){
 		map: map,
 		title: item.name
 	});
-
+	// $("#"+ toString(count)).data("food", "bar");
 	// This event expects a click on a marker
 	// When this event is fired the Info Window is opened.
 	google.maps.event.addListener(marker, 'click', function() {
@@ -286,9 +279,6 @@ function makePin(position, item){
 		});
 	});
 	markers.push(marker);
-	// console.log(markers);
-	// return marker;
-
 }
 
 function setMapOnAll(map) {
@@ -321,8 +311,9 @@ function fitAll(){
 	map.fitBounds(bounds);
 }
 
-$(".xbutton").on("click",".container",function(){
-	console.log("adding to todolist");
+$(document).on("click",".xbutton",function(){
+	var id = parseInt(this.id);
+	console.log(pinsData[name]);
 })
 
 $("#searchButton").on("click",function(){
@@ -341,6 +332,8 @@ $("#searchButton").on("click",function(){
 	// $("#stateSearch").val("");
 
 	deleteMarkers();
+	count = 0;
+	pinsData = [];
 
 	$.post(currentURL + "/yelp", searchRequest, function(data){
 		console.log("data sent back");
@@ -350,6 +343,7 @@ $("#searchButton").on("click",function(){
 			var item = list[i];
 			var location = {lat:item.location.coordinate.latitude, lng:item.location.coordinate.longitude};
 			makePin(location, item);
+			count++;
 		}
 		fitAll();
 	});
