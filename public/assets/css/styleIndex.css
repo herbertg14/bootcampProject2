@@ -111,11 +111,16 @@ i.large.material-icons {
 	color:white;
 }
 
-#rest-link{
+#rest-hyper{
 	font-size:15px;
 	font-family:"Cabin";
 	line-height:.1;
 	color:white;
+	margin-left:-16px;
+}
+
+#rest-link{
+	height:10px;
 }
 
 #rest-comment {
