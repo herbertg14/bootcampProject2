@@ -7,7 +7,25 @@ var models = require('./models');
 var moment = require('moment');
 var nodemailer = require('nodemailer');
 var sparkPostTransport = require('nodemailer-sparkpost-transport');
-var transporter = nodemailer.createTransport(sparkPostTransport({sparkPostApiKey: "a694a29aeadc75c9a943f51ad1fd8b5afc8f816f"}));
+var smtpTransport = require('nodemailer-smtp-transport');
+
+
+var transporter = nodemailer.createTransport(smtpTransport({
+    host: 'smtp.sparkpostmail.com',
+    port: 587,
+    auth: {
+        user: 'SMTP_Injection',
+        pass: 'c6497552924237b06390b3e585e446676e354d08'
+    }
+}));
+
+transporter.verify(function(error, success) {
+   if (error) {
+        console.log(error);
+   } else {
+        console.log('Server is ready to take our messages');
+   }
+});
 
 var app = express();
 

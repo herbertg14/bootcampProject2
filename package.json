@@ -27,6 +27,7 @@
     "moment": "^2.14.1",
     "mysql": "^2.11.1",
     "nodemailer": "^2.5.0",
+    "nodemailer-smtp-transport": "^2.6.0",
     "nodemailer-sparkpost-transport": "^1.0.0",
     "sequelize": "^3.23.6",
     "sequelize-cli": "^2.4.0",

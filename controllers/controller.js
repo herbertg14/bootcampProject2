@@ -5,6 +5,19 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var sha1 = require('sha1');
 var Yelp = require('yelp');
+var nodemailer = require('nodemailer');
+var sparkPostTransport = require('nodemailer-sparkpost-transport');
+var smtpTransport = require('nodemailer-smtp-transport');
+
+
+var transporter = nodemailer.createTransport(smtpTransport({
+    host: 'smtp.sparkpostmail.com',
+    port: 587,
+    auth: {
+        user: 'SMTP_Injection',
+        pass: 'c6497552924237b06390b3e585e446676e354d08'
+    }
+}));
 
 var yelp = new Yelp({
   consumer_key: 'hsHd6BVA10xYWbvnZm1i5g',
@@ -26,7 +39,7 @@ router.post('/signIn', function(req,res){
 	models.Users.findOne({
 		where: {username: req.body.username}
 	}).then(function(user) {
-		if (user == null){
+		if (user === null){
 			// console.log("user inputed a username the doesn't exist");
 			res.send('userName');
 		} else {
@@ -55,19 +68,14 @@ router.get('/myList', function(req,res){
 		var hbsObject = {user : data};
 		res.render('index', hbsObject);
 	});
-	// console.log("should be rendering index.handlebars");
-	// res.render('index');
 });
 
 //after the user signs up redirect them back to the main login page to now sign in.
 router.post('/login/new', function(req,res) {
-	// console.log("new user route hit");
   models.Users.findOne({ where: {username: req.body.username} }).then(function(user) {
   if(user) { // if the record already exists in the db then send an alert telling the user that the username already exist
-		// console.log("the user selected a username already in the database");
     res.send("alert");
   } else {
-		// console.log("new user being created");
     models.Users.create({
         firstName: req.body.firstName,
         LastName: req.body.lastName,
@@ -75,7 +83,19 @@ router.post('/login/new', function(req,res) {
         email: req.body.email,
         password: sha1(req.body.password)
     }).then(function(){
-			// console.log("redirecting");
+			console.log(req.body.email);
+			transporter.sendMail({
+				from: 'sandbox@sparkpostbox.com',
+				to: req.body.email,
+				subject: 'Thanks for signing up with Eatinerary!',
+				text: "Hey, "+ req.body.firstName + ". Your account is now registered with Eatinerary. Enjoy!",
+				html: ""
+			},function(err, succ){
+				if (err){
+					console.log('mail not sent: ' + err);
+				}
+				else {console.log('mail sent');}
+			});
       res.send('reload');
     });
   }
@@ -83,7 +103,6 @@ router.post('/login/new', function(req,res) {
 });
 
 router.post('/addToList', function(req,res){
-	// console.log('user added an item to their list');
 	models.ToDoList.create({
 		username: req.session.username,
 		email: req.session.user_email,
