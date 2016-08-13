@@ -113,11 +113,20 @@ i.large.material-icons {
 	color:white;
 }
 
-#rest-link{
+#rest-hyper{
 	font-size:15px;
 	font-family:"Cabin";
 	line-height:.1;
 	color:white;
+	margin-left:-16px;
+}
+
+#rest-hyper:hover{
+	background:none;
+}
+
+#rest-link{
+	height:10px;
 }
 
 #rest-comment {
@@ -190,9 +199,7 @@ fixed-action-btn{
 
 #googleMaps {
     position: relative;
-		/*margin-bottom: auto;*/
     padding-bottom: 55.22%;
-    /*height: 100% !important;*/
     overflow: hidden;
     width: 100%;
 		height: 100%;

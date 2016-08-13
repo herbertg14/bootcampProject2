@@ -1,3 +1,4 @@
+// var swal = require("sweetalert")
 $(document).ready(function(){
    $('.modal-trigger').leanModal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
@@ -22,7 +23,7 @@ $(document).ready(function(){
     $.post(currentURL + "/login/new", newUser ,function(err){
       console.log(err);
       if (err == "alert"){
-        alert("That username is taken. Please try another.");
+        sweetAlert("Oops...", "Username is taken, try another!", "error");
       }
       else {
         window.location.reload();
@@ -30,7 +31,7 @@ $(document).ready(function(){
     });
   }
   else {
-    alert("Please make sure you password matches.");
+    sweetAlert("Oops...", "Please make sure your passwords match!", "error");
   } //added this
     return false;
   });
@@ -43,12 +44,13 @@ $(document).ready(function(){
     };
    var currentURL = window.location.origin;
    $.post(currentURL + '/signIn', userInfo, function(data){
-    if (data == "userName"){
-      alert("you entered a username that doesn't exist");
+    if (data == "userName" || data == "password"){
+      // alert("you entered a username that doesn't exist");
+      sweetAlert("Oops...", "Wrong username or password!", "error");
     }
-    else if (data == "password"){
-      alert('Your username and password did not match');
-    }
+    // else if (data == "password"){
+    //   sweetAlert("Oops...", "Wrong username or password!", "error");
+    // }
     else {
     window.location.href = "/mylist";
     }
