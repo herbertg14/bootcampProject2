@@ -80,56 +80,77 @@ i.large.material-icons {
 	font-size:15px;
 	font-family:'Cabin';
 	line-height:.1;
+	color:white;
 }
 
 #rest-add{
 	font-size:15px;
 	font-family:"Cabin";
 	line-height:.1;
+	color:white;
 }
 
 #rest-city{
 	font-size:15px;
 	font-family:"Cabin";
 	line-height:.1;
+	color:white;
 }
 
 #rest-state{
 	font-size:15px;
 	font-family:"Cabin";
 	line-height:.1;
+	color:white;
 }
 
 #rest-num{
 	font-size:15px;
 	font-family:"Cabin";
 	line-height:.1;
+	color:white;
 }
 
 #rest-link{
 	font-size:15px;
 	font-family:"Cabin";
 	line-height:.1;
+	color:white;
 }
 
 #rest-comment {
 	font-family:"Cabin";
 	font-size:15px;
 	line-height:.1;
+	color:white;
 }
 
 #addToDo {
 	background-color:#76323F;
 }
 
-.lever {
-	background-color:gray;
+.dropdown-content li>span{
+	color:#76323F;
 }
 
-switch label.input[type=checkbox]:checked+.lever:after {
-	background-color:#76323f;
+#addRestHeader {
+	font-family:'Lobster';
+	text-align:center;
 }
 
+#search-dest {
+	font-family:"Lobster";
+	text-align:center;
+}
+
+#searchButton {
+	background-color:#76323F;
+	color:white;
+}
+
+.dropdown-content li>a {
+	color:#76323f;
+}
 
 
 
@@ -210,7 +231,7 @@ fixed-action-btn{
 }
 .iw-content img {
 	float: right;
-	margin: 0 40px 5px 10px;
+	margin: 0 70px 5px 10px;
 }
 .iw-subTitle {
 	font-size: 16px;
